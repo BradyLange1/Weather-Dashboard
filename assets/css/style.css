@@ -46,8 +46,24 @@ aside {
     color: white;
 }
 
+#recent-search-btn {
+    margin: 10px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #9ad1d4;
+}
+
+#recent-search-btn:hover {
+    background-color: #007ea7;
+    color: white;
+    cursor: pointer;
+    transition: .4s;
+}
+
 .btn-search:hover {
     background-color: #80ced7;
+    color: black;
+    cursor: pointer;
     transition: .4s;
 }
 
