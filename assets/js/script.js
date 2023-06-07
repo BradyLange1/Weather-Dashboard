@@ -36,11 +36,11 @@ function getLatLon() {
 
 function displayPrevSearches(){
     for (i = 0; i < prevSearch.length && i < numOfSearches; i++)
-        $("#city-search").append("<button id = recent-search-btn class = btn>" +  prevSearch[i])
+        $("#city-search").append("<button class = recent-search-btn>" +  prevSearch[i])
 }
 
 function updatePrevSearches(){
-    $("#city-search").append("<button id = recent-search-btn class = btn>" +  prevSearch[0])
+    $("#city-search").append("<button class = recent-search-btn>" +  prevSearch[0])
 }
 
 function weatherInfo() {
@@ -63,9 +63,11 @@ function weatherInfo() {
                 $("#forecast-humidity" + index).text('Humidity: ' + data.list[i].main.humidity + '%')
                 index++
             }
-            prevSearch.unshift(data.city.name)
-            localStorage.setItem("userSearchHistory", JSON.stringify(prevSearch))
-            updatePrevSearches()
+            if (x){
+                prevSearch.unshift(data.city.name)
+                localStorage.setItem("userSearchHistory", JSON.stringify(prevSearch))
+                updatePrevSearches()
+            }
         })
 }
 
@@ -73,12 +75,13 @@ displayPrevSearches()
 
 searchBtnEl.on('click', function(){
     userInput = $("input").val()
+    x = true
     getLatLon()
 })
 
-var recentSearchBtnEl = $("#recent-search-btn")
+var recentSearchBtnEl = $(".recent-search-btn")
 recentSearchBtnEl.on('click', function(){
-    console.log($(this).text())
     userInput = $(this).text()
+    x = false
     getLatLon()
 })

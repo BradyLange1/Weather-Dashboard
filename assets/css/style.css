@@ -46,11 +46,14 @@ aside {
     color: white;
 }
 
-#recent-search-btn {
+.recent-search-btn {
     margin: 10px;
     border-radius: 5px;
     border-style: none;
     background-color: #9ad1d4;
+    height: 40px;
+    padding: 5px;
+    font-size: 16px;
 }
 
 #recent-search-btn:hover {
