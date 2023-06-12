@@ -48,7 +48,6 @@ function weatherInfo() {
         })
         //writes data out to screen
         .then(function(data){
-            console.log(data)
             cityNameEl.text(data.city.name + " " + dayjs().format('M/D/YYYY'))
             currentWeatherImageEl.attr("src", 'https://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png')
             currentTempEl.text('Temp: ' + data.list[0].main.temp)
